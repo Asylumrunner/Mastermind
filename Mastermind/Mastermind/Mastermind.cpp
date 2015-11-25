@@ -12,10 +12,10 @@
 using namespace std;
 
 bool validGuess (string guess){ //validGuess is a simple function which determines if a player's guess is even in the realm of possible answers
-	if(guess.length() != 4){//if the player inputted a guess that isn't four characters long, it's already wrong, so reject it
+	if(guess.length() != 8){//if the player inputted a guess that isn't four characters long, it's already wrong, so reject it
 		return false;
 	}
-	for(int j = 0; j < 4; j++){//if the guess is four letters long, go through it letter by letter and make sure each letter is a w, W, b, or B
+	for(int j = 0; j < 8; j++){//if the guess is four letters long, go through it letter by letter and make sure each letter is a w, W, b, or B
 		if(toupper(guess[j]) != 'W' && toupper(guess[j]) != 'B'){
 			return false;//if any letter of the guess isn't one of those four, the guess is invalid
 		}
@@ -37,7 +37,7 @@ bool hintGenerator(string guess, char* solution, int numW, int numB){//hintGener
 	bool exactlyAlike = true;//assume the guess is in fact correct until proven otherwise
 	int rightColorAndPlacement = 0;//and also keep running totals of the number of pegs that are right color/right spot, and those that are right color/wrong spot, for use in the hints
 	int rightColorWrongSpot = 0;
-	for(int i = 0; i < 4; i++){//for every letter of the guess
+	for(int i = 0; i < 8; i++){//for every letter of the guess
 		if(guess[i] == solution[i]){//check to see if it matches with the corresponding peg in the code. If it does
 			rightColorAndPlacement++;//increment the number of perfectly right pegs by one
 			if(guess[i] == 'W' && numW > 0){//We also need to keep track of if the perfectly correct peg is white or black, for use in the else statement
@@ -119,7 +119,7 @@ void main(){
 	}
 
 	if (showTutorial){
-		cout << "I will generate a random sequence of pegs, 4 long." << endl;
+		cout << "I will generate a random sequence of pegs, 8 long." << endl;
 		cout << "Each peg in the sequence is either black (B) or white (W)" << endl;
 		cout << "You have " << guesses << " guesses to try and determine this sequence." << endl;
 		cout << "Every time you guess, I'll tell you a bit of information." << endl;
@@ -129,14 +129,14 @@ void main(){
 		cout << "If you don't guess the sequence within your alloted guesses, I win!" << endl << endl;
 	}//This is the admittedly verbose tutorial
 
-	char solution [4];//Now we're hitting the game itself. First we initialize a solution character array of length 4
+	char solution [8];//Now we're hitting the game itself. First we initialize a solution character array of length 4
 	bool repeat = true;//we also set up repeat, which will determine for how long players want to keep playing the game
 	do{	//I'm using a do-while loop here to contain the game, since I know players will want to play at least once.
 		int numBlack = 0;
 		int numWhite = 0;//Set up counter variables to hold the number of black pegs and white pegs in the solution.
 		srand(time(0));//Also, seed our random number generator using the time.
 
-		for (int i = 0; i < 4; i++){//for every character in our code
+		for (int i = 0; i < 8; i++){//for every character in our code
 			if(rand() % 2 == 0){//generate a random number, then determine if it's odd or even
 				solution[i] = 'W';//using that data, we randomly assign every peg in the solution array to be white or black
 				numWhite++;//we also adjust our counter variables accordingly

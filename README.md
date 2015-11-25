@@ -39,4 +39,4 @@ This process continues until the codebreaker successfully guesses the code, in w
 Learn more about Mastermind [here](https://en.wikipedia.org/wiki/Mastermind_(board_game))
 
 ## This Implementation of Mastermind
-This particular implementation of the game is extremely simple. Each peg in the code can only be one of two colors, instead of the normal six. As a result, there are 2^4, or 16 codes. Our possibility space is far smaller than your typical game of Mastermind (which has 1296 possible codes). The objective of this program is not to make an unbreakable codemaking program. Rather, it is simply to demonstate the point.
+This particular implementation of the game is extremely simple. Each peg in the code can only be one of two colors, instead of the normal six. As a result, there are 2^8, or 256 codes. Our possibility space is far smaller than your typical game of Mastermind (which has 1296 possible codes). The objective of this program is not to make an unbreakable codemaking program. Rather, it is simply to demonstate the concept of the game
