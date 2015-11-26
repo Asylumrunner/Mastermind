@@ -176,6 +176,11 @@ void main(){
 
 		if(!correct){//if we ended up breaking out of the while loop due to running out of guesses, instead of by guessing correctly, print the loss statement
 			cout << "You're all out of guesses! I win!" << endl;
+			cout << "My code was ";
+			for (int q = 0; q < 8; q++){//Also, we print out the code, to give users the catharsis of at least seeing the right code
+				cout << solution[q];
+			}
+			cout << "!" << endl;
 		}
 
 		cout << "Play again? (y/n) "; //Now that the game is complete, prompt the user to see if they want to play again
